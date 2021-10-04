@@ -1,0 +1,864 @@
+{% extends 'wheelspin/base.html' %}
+{% load static %}
+{% block title %}Crypto Wheel Spin{% endblock %}
+{% block body %}
+
+    <!-- Breadcrumb Area Start -->
+    <section class="breadcrumb-area play">
+        <img class="bc-img" src="{% static 'wheelspin/assets/images/breadcrumb/play.png' %}" alt="">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4 class="title">
+                        Slots
+                    </h4>
+                    <ul class="breadcrumb-list">
+                        <li>
+                            <a href="/">
+									<i class="fas fa-home"></i>
+									Home
+							</a>
+                        </li>
+                        <li>
+                            <span><i class="fas fa-chevron-right"></i> </span>
+                        </li>
+                        <li>
+                            <a href="/slots">Slots</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Area End -->
+
+    <!-- Play Games Area Start -->
+    <section class="play-games">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="gaming-activities">
+                        <div class="gaming-activities-inner">
+                            <div class="row">
+                                <!-- bmar -->
+                                {% for e in lof %}
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="single-activities" style="margin-top: 40px;">
+                                        <div class="top-area">
+                                            <div class="left">
+                                                <div class="icon">
+                                                    <img src="{% static 'wheelspin/assets/images/play/icon1.png' %}" alt="">
+                                                    <span>
+															4.5 <i class="fas fa-star"></i>
+														</span>
+                                                </div>
+                                            </div>
+                                            <div class="right">
+                                                <h4 class="title">
+                                                    {{e}}$
+                                                </h4>
+                                                <p class="text">
+                                                    Roll the Dice
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-area">
+                                            <!-- <h4 class="title">People Playing:</h4>
+                                            <div class="players-count">
+                                                <ul class="players-list">
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                </ul>
+                                                <div class="count-num">
+                                                    40+
+                                                </div>
+                                            </div>
+                                            <div class="pp">
+                                                <p>50 People Playing</p>
+                                            </div> -->
+                                            <a href="/slotlist/{{e}}">
+                                                <button class="btn btn-primary">Play</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                <!-- <div class="col-lg-4 col-md-6">
+                                    <div class="single-activities">
+                                        <div class="top-area">
+                                            <div class="left">
+                                                <div class="icon">
+                                                    <img src="{% static 'wheelspin/assets/images/play/icon2.png' %}" alt="">
+                                                    <span>
+															4.5 <i class="fas fa-star"></i>
+														</span>
+                                                </div>
+                                            </div>
+                                            <div class="right">
+                                                <h4 class="title">
+                                                    Crypto DICE
+                                                </h4>
+                                                <p class="text">
+                                                    Roll the Dice
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-area">
+                                            <h4 class="title">People Playing:</h4>
+                                            <div class="players-count">
+                                                <ul class="players-list">
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                </ul>
+                                                <div class="count-num">
+                                                    40+
+                                                </div>
+                                            </div>
+                                            <div class="pp">
+                                                <p>50 People Playing</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-activities">
+                                        <div class="top-area">
+                                            <div class="left">
+                                                <div class="icon">
+                                                    <img src="{% static 'wheelspin/assets/images/play/icon3.png' %}" alt="">
+                                                    <span>
+															4.5 <i class="fas fa-star"></i>
+														</span>
+                                                </div>
+                                            </div>
+                                            <div class="right">
+                                                <h4 class="title">
+                                                    Crypto DICE
+                                                </h4>
+                                                <p class="text">
+                                                    Roll the Dice
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-area">
+                                            <h4 class="title">People Playing:</h4>
+                                            <div class="players-count">
+                                                <ul class="players-list">
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                </ul>
+                                                <div class="count-num">
+                                                    40+
+                                                </div>
+                                            </div>
+                                            <div class="pp">
+                                                <p>50 People Playing</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- bamrEND -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    <!-- Play Games Area End -->
+<!-- <section class="play-games">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+</section>
+<section class="play-games">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="gaming-activities">
+                        <div class="gaming-activities-inner">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-activities">
+                                        <div class="top-area">
+                                            <div class="left">
+                                                <div class="icon">
+                                                    <img src="{% static 'wheelspin/assets/images/play/icon1.png' %}" alt="">
+                                                    <span>
+															4.5 <i class="fas fa-star"></i>
+														</span>
+                                                </div>
+                                            </div>
+                                            <div class="right">
+                                                <h4 class="title">
+                                                    Crypto DICE
+                                                </h4>
+                                                <p class="text">
+                                                    Roll the Dice
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-area">
+                                            <h4 class="title">People Playing:</h4>
+                                            <div class="players-count">
+                                                <ul class="players-list">
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                </ul>
+                                                <div class="count-num">
+                                                    40+
+                                                </div>
+                                            </div>
+                                            <div class="pp">
+                                                <p>50 People Playing</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-activities">
+                                        <div class="top-area">
+                                            <div class="left">
+                                                <div class="icon">
+                                                    <img src="{% static 'wheelspin/assets/images/play/icon2.png' %}" alt="">
+                                                    <span>
+															4.5 <i class="fas fa-star"></i>
+														</span>
+                                                </div>
+                                            </div>
+                                            <div class="right">
+                                                <h4 class="title">
+                                                    Crypto DICE
+                                                </h4>
+                                                <p class="text">
+                                                    Roll the Dice
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-area">
+                                            <h4 class="title">People Playing:</h4>
+                                            <div class="players-count">
+                                                <ul class="players-list">
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                </ul>
+                                                <div class="count-num">
+                                                    40+
+                                                </div>
+                                            </div>
+                                            <div class="pp">
+                                                <p>50 People Playing</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-activities">
+                                        <div class="top-area">
+                                            <div class="left">
+                                                <div class="icon">
+                                                    <img src="{% static 'wheelspin/assets/images/play/icon3.png' %}" alt="">
+                                                    <span>
+															4.5 <i class="fas fa-star"></i>
+														</span>
+                                                </div>
+                                            </div>
+                                            <div class="right">
+                                                <h4 class="title">
+                                                    Crypto DICE
+                                                </h4>
+                                                <p class="text">
+                                                    Roll the Dice
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-area">
+                                            <h4 class="title">People Playing:</h4>
+                                            <div class="players-count">
+                                                <ul class="players-list">
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                </ul>
+                                                <div class="count-num">
+                                                    40+
+                                                </div>
+                                            </div>
+                                            <div class="pp">
+                                                <p>50 People Playing</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+<section class="play-games">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+</section>
+<section class="play-games">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="gaming-activities">
+                        <div class="gaming-activities-inner">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-activities">
+                                        <div class="top-area">
+                                            <div class="left">
+                                                <div class="icon">
+                                                    <img src="{% static 'wheelspin/assets/images/play/icon1.png' %}" alt="">
+                                                    <span>
+															4.5 <i class="fas fa-star"></i>
+														</span>
+                                                </div>
+                                            </div>
+                                            <div class="right">
+                                                <h4 class="title">
+                                                    Crypto DICE
+                                                </h4>
+                                                <p class="text">
+                                                    Roll the Dice
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-area">
+                                            <h4 class="title">People Playing:</h4>
+                                            <div class="players-count">
+                                                <ul class="players-list">
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                </ul>
+                                                <div class="count-num">
+                                                    40+
+                                                </div>
+                                            </div>
+                                            <div class="pp">
+                                                <p>50 People Playing</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-activities">
+                                        <div class="top-area">
+                                            <div class="left">
+                                                <div class="icon">
+                                                    <img src="{% static 'wheelspin/assets/images/play/icon2.png' %}" alt="">
+                                                    <span>
+															4.5 <i class="fas fa-star"></i>
+														</span>
+                                                </div>
+                                            </div>
+                                            <div class="right">
+                                                <h4 class="title">
+                                                    Crypto DICE
+                                                </h4>
+                                                <p class="text">
+                                                    Roll the Dice
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-area">
+                                            <h4 class="title">People Playing:</h4>
+                                            <div class="players-count">
+                                                <ul class="players-list">
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                </ul>
+                                                <div class="count-num">
+                                                    40+
+                                                </div>
+                                            </div>
+                                            <div class="pp">
+                                                <p>50 People Playing</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-activities">
+                                        <div class="top-area">
+                                            <div class="left">
+                                                <div class="icon">
+                                                    <img src="{% static 'wheelspin/assets/images/play/icon3.png' %}" alt="">
+                                                    <span>
+															4.5 <i class="fas fa-star"></i>
+														</span>
+                                                </div>
+                                            </div>
+                                            <div class="right">
+                                                <h4 class="title">
+                                                    Crypto DICE
+                                                </h4>
+                                                <p class="text">
+                                                    Roll the Dice
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-area">
+                                            <h4 class="title">People Playing:</h4>
+                                            <div class="players-count">
+                                                <ul class="players-list">
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                </ul>
+                                                <div class="count-num">
+                                                    40+
+                                                </div>
+                                            </div>
+                                            <div class="pp">
+                                                <p>50 People Playing</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+<section class="play-games">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+</section> -->
+<!--  -->
+<!-- <section class="play-games">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="gaming-activities">
+                        <div class="gaming-activities-inner">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-activities">
+                                        <div class="top-area">
+                                            <div class="left">
+                                                <div class="icon">
+                                                    <img src="{% static 'wheelspin/assets/images/play/icon1.png' %}" alt="">
+                                                    <span>
+															4.5 <i class="fas fa-star"></i>
+														</span>
+                                                </div>
+                                            </div>
+                                            <div class="right">
+                                                <h4 class="title">
+                                                    Crypto DICE
+                                                </h4>
+                                                <p class="text">
+                                                    Roll the Dice
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-area">
+                                            <h4 class="title">People Playing:</h4>
+                                            <div class="players-count">
+                                                <ul class="players-list">
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                </ul>
+                                                <div class="count-num">
+                                                    40+
+                                                </div>
+                                            </div>
+                                            <div class="pp">
+                                                <p>50 People Playing</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-activities">
+                                        <div class="top-area">
+                                            <div class="left">
+                                                <div class="icon">
+                                                    <img src="{% static 'wheelspin/assets/images/play/icon2.png' %}" alt="">
+                                                    <span>
+															4.5 <i class="fas fa-star"></i>
+														</span>
+                                                </div>
+                                            </div>
+                                            <div class="right">
+                                                <h4 class="title">
+                                                    Crypto DICE
+                                                </h4>
+                                                <p class="text">
+                                                    Roll the Dice
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-area">
+                                            <h4 class="title">People Playing:</h4>
+                                            <div class="players-count">
+                                                <ul class="players-list">
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                </ul>
+                                                <div class="count-num">
+                                                    40+
+                                                </div>
+                                            </div>
+                                            <div class="pp">
+                                                <p>50 People Playing</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-activities">
+                                        <div class="top-area">
+                                            <div class="left">
+                                                <div class="icon">
+                                                    <img src="{% static 'wheelspin/assets/images/play/icon3.png' %}" alt="">
+                                                    <span>
+															4.5 <i class="fas fa-star"></i>
+														</span>
+                                                </div>
+                                            </div>
+                                            <div class="right">
+                                                <h4 class="title">
+                                                    Crypto DICE
+                                                </h4>
+                                                <p class="text">
+                                                    Roll the Dice
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-area">
+                                            <h4 class="title">People Playing:</h4>
+                                            <div class="players-count">
+                                                <ul class="players-list">
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                </ul>
+                                                <div class="count-num">
+                                                    40+
+                                                </div>
+                                            </div>
+                                            <div class="pp">
+                                                <p>50 People Playing</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+<section class="play-games">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+</section> -->
+
+<!-- <section class="play-games">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="gaming-activities">
+                        <div class="gaming-activities-inner">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-activities">
+                                        <div class="top-area">
+                                            <div class="left">
+                                                <div class="icon">
+                                                    <img src="{% static 'wheelspin/assets/images/play/icon1.png' %}" alt="">
+                                                    <span>
+															4.5 <i class="fas fa-star"></i>
+														</span>
+                                                </div>
+                                            </div>
+                                            <div class="right">
+                                                <h4 class="title">
+                                                    Crypto DICE
+                                                </h4>
+                                                <p class="text">
+                                                    Roll the Dice
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-area">
+                                            <h4 class="title">People Playing:</h4>
+                                            <div class="players-count">
+                                                <ul class="players-list">
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                </ul>
+                                                <div class="count-num">
+                                                    40+
+                                                </div>
+                                            </div>
+                                            <div class="pp">
+                                                <p>50 People Playing</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-activities">
+                                        <div class="top-area">
+                                            <div class="left">
+                                                <div class="icon">
+                                                    <img src="{% static 'wheelspin/assets/images/play/icon2.png' %}" alt="">
+                                                    <span>
+															4.5 <i class="fas fa-star"></i>
+														</span>
+                                                </div>
+                                            </div>
+                                            <div class="right">
+                                                <h4 class="title">
+                                                    Crypto DICE
+                                                </h4>
+                                                <p class="text">
+                                                    Roll the Dice
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-area">
+                                            <h4 class="title">People Playing:</h4>
+                                            <div class="players-count">
+                                                <ul class="players-list">
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                </ul>
+                                                <div class="count-num">
+                                                    40+
+                                                </div>
+                                            </div>
+                                            <div class="pp">
+                                                <p>50 People Playing</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-activities">
+                                        <div class="top-area">
+                                            <div class="left">
+                                                <div class="icon">
+                                                    <img src="{% static 'wheelspin/assets/images/play/icon3.png' %}" alt="">
+                                                    <span>
+															4.5 <i class="fas fa-star"></i>
+														</span>
+                                                </div>
+                                            </div>
+                                            <div class="right">
+                                                <h4 class="title">
+                                                    Crypto DICE
+                                                </h4>
+                                                <p class="text">
+                                                    Roll the Dice
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-area">
+                                            <h4 class="title">People Playing:</h4>
+                                            <div class="players-count">
+                                                <ul class="players-list">
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                    <li>
+                                                        <img src="{% static 'wheelspin/assets/images/play/people.png' %}" alt="">
+                                                    </li>
+                                                </ul>
+                                                <div class="count-num">
+                                                    40+
+                                                </div>
+                                            </div>
+                                            <div class="pp">
+                                                <p>50 People Playing</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+  -->
+
+{% endblock %}

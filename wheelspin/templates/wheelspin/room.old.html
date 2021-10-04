@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <title>ROOM</title>
+</head>
+    <body>
+        <h1 id="activeCouter">{{activeCouter}}</h1>
+    </body>
+<script>
+    const room_name ="{{room_name}}";
+    const total = "{{total}}";
+    const chatSocket = new WebSocket(
+        'ws://' +
+        window.location.host +
+        '/ws/room/' +
+        room_name +
+        '/'
+    )
+
+    chatSocket.onopen =()=>{
+        chatSocket.send(JSON.stringify({
+            'room_name': room_name,
+            'activeCouter': '{{activeCouter}}',
+        }))
+    }
+    function complete(){
+        location.href = "/games/wheelgame/"+room_name;
+    }
+    chatSocket.onmessage = function (e) {
+        const data = JSON.parse(e.data);
+        document.querySelector('#activeCouter').innerHTML = data.activeCouter;
+        if (parseInt(data.activeCouter)==total){
+            complete();
+        }
+    }
+</script>
+</html>

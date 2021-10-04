@@ -1,0 +1,128 @@
+{% extends 'wheelspin/base.html' %}
+{% load static %}
+{% block title %}Crypto Wheel Spin{% endblock %}
+{% block body %}
+
+    <!-- Breadcrumb Area Start -->
+    <section class="breadcrumb-area play">
+        <img class="bc-img" src="{% static 'wheelspin/assets/images/breadcrumb/play.png' %}" alt="">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4 class="title">
+                        Waiting Lounge
+                    </h4>
+                    <ul class="breadcrumb-list">
+                        <li>
+                            <a href="/">
+									<i class="fas fa-home"></i>
+									Home
+							</a>
+                        </li>
+                        <li>
+                            <span><i class="fas fa-chevron-right"></i> </span>
+                        </li>
+                        <li>
+                            <a href="#">Waiting Lounge</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Area End -->
+
+    <!-- Play Games Area Start -->
+    <section class="play-games">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="gaming-activities">
+                        <div class="gaming-activities-inner">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="single-activities">
+                                        <div class="top-area">
+                                            <div class="left">
+                                                <div class="icon">
+                                                    <img src="{% static 'wheelspin/assets/images/play/icon1.png' %}" alt="">
+                                                    <span>
+															4.5 <i class="fas fa-star"></i>
+														</span>
+                                                </div>
+                                            </div>
+                                            <div class="right">
+                                                <h4 class="title">
+                                                    Slot: {{bet}}$
+                                                </h4>
+                                                <p class="text">
+                                                    Capacity: {{total}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-area">
+                                            <h4 class="title">People Playing:</h4>
+                                            <div class="players-count" id="activeCouter" style="margin-bottom: 30px;">
+                                                {{activeCouter}}
+                                            </div>
+                                            <div class="pp">
+                                                <h1  onclick="leave()" class="mybtn1">Leave</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    <!-- Play Games Area End -->
+<section class="play-games">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<script>
+    const room_name ="{{room_name}}";
+    const total = "{{total}}";
+    const chatSocket = new WebSocket(
+        'ws://' +
+        window.location.host +
+        '/ws/room/' +
+        room_name +
+        '/'
+    )
+
+    function leave(){
+        chatSocket.send(JSON.stringify({
+            'room_name': room_name,
+            'activeCouter': parseInt("{{activeCouter}}")-1,
+        }))
+        location.href = "/leave/"+room_name;
+    }
+
+    chatSocket.onopen =()=>{
+        chatSocket.send(JSON.stringify({
+            'room_name': room_name,
+            'activeCouter': '{{activeCouter}}',
+        }))
+    }
+    function complete(){
+        location.href = "/games/wheelgame/"+room_name;
+    }
+    chatSocket.onmessage = function (e) {
+        const data = JSON.parse(e.data);
+        document.querySelector('#activeCouter').innerHTML = data.activeCouter;
+        if (parseInt(data.activeCouter)==total){
+            complete();
+        }
+    }
+</script>
+
+{% endblock %}

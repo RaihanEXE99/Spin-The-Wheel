@@ -1,0 +1,262 @@
+{% extends 'wheelspin/base.html' %}
+{% load static %}
+{% block title %}Crypto Wheel Spin{% endblock %}
+{% load mathfilters %}
+{% block body %}
+
+    <!-- Breadcrumb Area Start -->
+    <section class="breadcrumb-area bc-tournaments">
+        <img class="bc-img" src="{% static 'wheelspin/assets/images/breadcrumb/tournaments.png' %}" alt="">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4 class="title">
+                        Inplay
+                    </h4>
+                    <ul class="breadcrumb-list">
+                        <li>
+                            <a href="/">
+								<i class="fas fa-home"></i>
+								Home
+							</a>
+                        </li>
+                        <li>
+                            <span><i class="fas fa-chevron-right"></i> </span>
+                        </li>
+                        <li>
+                            <a href="/slotlist">Slotlist</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Area End -->
+
+
+    <!-- Tournaments Area Start -->
+    <section class="tournaments">
+        <div class="info-table">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="main-box">
+                            
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="pills-all-player" role="tabpanel" aria-labelledby="pills-all-player-tab">
+                                    <div class="inner-table-content">
+                                        
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade show active" id="pills-leaderboardr" role="tabpanel" aria-labelledby="pills-leaderboardr-tab">
+
+                                                <div class="inner-table">
+                                                    <div class="responsive-table">
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col">Entry Fee</th>
+                                                                    <th scope="col">Win Bonus</th>
+                                                                    <th scope="col">Slots</th>
+                                                                    <th scope="col"></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                {% for room in rooms %}
+                                                                <tr>
+                                                                    <td>
+                                                                        <img src="{% static 'wheelspin/assets/images/icon1.png' %}" alt=""> {{room.bet}}$
+                                                                    </td>
+                                                                    <td>
+                                                                        {% with answer=room.bet|mul:room.total|mul:.1 %}
+                                                                        {{room.bet|mul:room.total|sub:answer}}
+                                                                        {% endwith %}
+                                                                    </td>
+                                                                    <td>
+                                                                        {{room.total}}
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="/games/{{room.room_name}}">
+                                                                            <button style="background-color: #f0ad4e; color: black; padding: 5px 40px; border-radius: 14px; outline: none; border: none;">Return</button>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                                {% endfor %}
+
+                                                                <!--  -->
+                                                                <!-- <tr>
+                                                                    <td>
+                                                                        <img src="{% static 'wheelspin/assets/images/icon1.png' %}" alt=""> 500$
+                                                                    </td>
+                                                                    <td>
+                                                                        01
+                                                                    </td>
+                                                                    <td>
+                                                                        01
+                                                                    </td>
+                                                                    <td>
+                                                                        33528.36
+                                                                    </td>
+                                                                    <td>
+                                                                        <button style="background-color: #f0ad4e; color: black; padding: 5px 40px; border-radius: 14px; outline: none; border: none;">Join</btutton>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <img src="{% static 'wheelspin/assets/images/icon1.png' %}" alt=""> 500$
+                                                                    </td>
+                                                                    <td>
+                                                                        01
+                                                                    </td>
+                                                                    <td>
+                                                                        01
+                                                                    </td>
+                                                                    <td>
+                                                                        33528.36
+                                                                    </td>
+                                                                    <td>
+                                                                        <button style="background-color: #f0ad4e; color: black; padding: 5px 40px; border-radius: 14px; outline: none; border: none;">Join</btutton>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <img src="{% static 'wheelspin/assets/images/icon1.png' %}" alt=""> 500$
+                                                                    </td>
+                                                                    <td>
+                                                                        01
+                                                                    </td>
+                                                                    <td>
+                                                                        01
+                                                                    </td>
+                                                                    <td>
+                                                                        33528.36
+                                                                    </td>
+                                                                    <td>
+                                                                        <button style="background-color: #f0ad4e; color: black; padding: 5px 40px; border-radius: 14px; outline: none; border: none;">Join</btutton>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <img src="{% static 'wheelspin/assets/images/icon1.png' %}" alt=""> 500$
+                                                                    </td>
+                                                                    <td>
+                                                                        01
+                                                                    </td>
+                                                                    <td>
+                                                                        01
+                                                                    </td>
+                                                                    <td>
+                                                                        33528.36
+                                                                    </td>
+                                                                    <td>
+                                                                        <button style="background-color: #f0ad4e; color: black; padding: 5px 40px; border-radius: 14px; outline: none; border: none;">Join</btutton>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <img src="{% static 'wheelspin/assets/images/icon1.png' %}" alt=""> 500$
+                                                                    </td>
+                                                                    <td>
+                                                                        01
+                                                                    </td>
+                                                                    <td>
+                                                                        01
+                                                                    </td>
+                                                                    <td>
+                                                                        33528.36
+                                                                    </td>
+                                                                    <td>
+                                                                        <button style="background-color: #f0ad4e; color: black; padding: 5px 40px; border-radius: 14px; outline: none; border: none;">Join</btutton>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <img src="{% static 'wheelspin/assets/images/icon1.png' %}" alt=""> 500$
+                                                                    </td>
+                                                                    <td>
+                                                                        01
+                                                                    </td>
+                                                                    <td>
+                                                                        01
+                                                                    </td>
+                                                                    <td>
+                                                                        33528.36
+                                                                    </td>
+                                                                    <td>
+                                                                        <button style="background-color: #f0ad4e; color: black; padding: 5px 40px; border-radius: 14px; outline: none; border: none;">Join</btutton>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <img src="{% static 'wheelspin/assets/images/icon1.png' %}" alt=""> 500$
+                                                                    </td>
+                                                                    <td>
+                                                                        01
+                                                                    </td>
+                                                                    <td>
+                                                                        01
+                                                                    </td>
+                                                                    <td>
+                                                                        33528.36
+                                                                    </td>
+                                                                    <td>
+                                                                        <button style="background-color: #f0ad4e; color: black; padding: 5px 40px; border-radius: 14px; outline: none; border: none;">Join</btutton>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <img src="{% static 'wheelspin/assets/images/icon1.png' %}" alt=""> 500$
+                                                                    </td>
+                                                                    <td>
+                                                                        01
+                                                                    </td>
+                                                                    <td>
+                                                                        01
+                                                                    </td>
+                                                                    <td>
+                                                                        33528.36
+                                                                    </td>
+                                                                    <td>
+                                                                        <button style="background-color: #f0ad4e; color: black; padding: 5px 40px; border-radius: 14px; outline: none; border: none;">Join</btutton>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <img src="{% static 'wheelspin/assets/images/icon1.png' %}" alt=""> 500$
+                                                                    </td>
+                                                                    <td>
+                                                                        01
+                                                                    </td>
+                                                                    <td>
+                                                                        01
+                                                                    </td>
+                                                                    <td>
+                                                                        33528.36
+                                                                    </td>
+                                                                    <td>
+                                                                        <button style="background-color: #f0ad4e; color: black; padding: 5px 40px; border-radius: 14px; outline: none; border: none;">Join</btutton>
+                                                                    </td>
+                                                                </tr> -->
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Tournaments Area End -->
+
+
+
+
+{% endblock  %}

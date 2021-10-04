@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'wheelspin/game/css/main.css' %}" type="text/css" />
+    <script type="text/javascript" src="{% static 'wheelspin/game/js/Winwheel.js' %}"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+</head>
+<body style="display: flex;justify-content: center; height: 100vh; width: 100vw; background-image: url('{% static 'wheelspin/game/media/final.jpg' %}'); background-size: cover; background-repeat: no-repeat; background-position: center center; display: flex;justify-content: center; align-items: center;">
+
+    {{ room_name|json_script:"room-name" }}
+    
+    <section class="four-zero-four" id="rme" style="display: flex;justify-content: center;">
+    <div>
+            
+            <table cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td>
+                    <div class="power_controls">
+                        <br />
+                        <br />
+                       <div style="display: flex;justify-content:center ">
+                            <h1 id="progressBar"></h1>
+                       </div>
+                        <!-- <img src="https://img.icons8.com/cute-clipart/64/000000/start.png" id="spin_button"  alt="Spin" onClick="startSpin()" /> -->
+                        <img src id="spin_button" hidden alt="Spin" onClick="startSpin()" />
+                        <br /><br />
+                        &nbsp;&nbsp;
+                    </div>
+                </td>
+                <td width="418" height="473" class="the_wheel" align="center" valign="center">
+                    <!-- <canvas id="canvas" width="434" height="434" onclick="startSpin()"> -->
+                    <canvas id="canvas" width="434" height="434">
+                        <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>
+                    </canvas>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </section>
+    {{ userlist|json_script:"userlist" }}
+    {{ deg|json_script:"deg" }}
+
+
+    <script type="text/javascript" src="{% static 'wheelspin/game/js/main.js' %}"></script>
+    <script>
+        (function(){
+            var timeleft = 10;
+            var downloadTimer = setInterval(function(){
+            if(timeleft <= 0){
+                clearInterval(downloadTimer);
+            }
+            document.getElementById("progressBar").innerHTML = timeleft;
+            timeleft -= 1;
+            }, 1000);
+            
+            setTimeout(
+            function() {
+                document.getElementById("progressBar").style.display="none";
+                startSpin();
+            }, 12000);
+            console.log("started")
+            setTimeout(
+                        function() {
+                            let fzf = document.querySelector('#rme')
+                            fzf.innerHTML = `
+                            <div style="background:black;display:flex;justify-content:center;">
+                                <div>
+                                    <h1>The Winner is {{winner}}</h1>
+                                    <a style="display:flex;justify-content:center;">
+                                        <button class="btn btn-primary my-4">Please Wait Redirecting</button>
+                                    </a>
+                                </div>
+                            </div>
+                            `
+                        }, 27000);
+            setTimeout(
+            function() {
+                location.href = "/gameresults";
+            }, 38000);
+        })();
+    </script>
+
+
+</body>
+</html>
